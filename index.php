@@ -27,7 +27,7 @@ for($i=0;$i<count($array);$i++){
         $numsToExclude[] = $array[$i];
         continue;
     }
-    echo $array[$i], "<br/>";
+
 }
 //var_dump($array);
 //echo "<br/>";
@@ -40,12 +40,12 @@ sort($array);
 //echo "Array sum ", array_sum($array), "<br/>";
 //echo "Array count ", count($array), "<br/>";
 
-echo "Array with unique values";
+//echo "Array with unique values";
 //var_dump($array);
 echo "<br/>";
 $closestNumber = null;
 
-//var_dump($array);
+
 foreach($array as $key =>  $value){
     if($value >= $arithmeticMean && $value%2===0){
         $closestNumber = $value;
@@ -54,17 +54,26 @@ foreach($array as $key =>  $value){
 }
 
 
-echo $closestNumber, "<br/>";
+//echo $closestNumber, "<br/>";
 
 $squareRootPlusOne = intval(sqrt(max($array)))+1;
-echo $squareRootPlusOne, "<br/>";
-echo "<table border='1' width='500px' height='500px'>";
+//echo $squareRootPlusOne, "<br/>";
+var_dump($array);
+echo "<br/>";
+for($i=0;$i<count($array);$i++) {
+    if ($array[$i] % 2 !== 0) {
+        continue;
+    }
+    echo $array[$i], "<br/>";
+}
+
+echo "<table border='1'>";
 $p = 1;
 for($i=0;$i<$squareRootPlusOne;$i++){
     echo "<tr>";
 
     for($j=0;$j<$squareRootPlusOne;$j++){
-            if(array_search($p,$array)){
+            if(in_array($p,$array)){
                 echo "<td>", $p, "</td>";
             }else{
                 echo "<td>", "</td>";
