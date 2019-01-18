@@ -30,7 +30,7 @@ $array = array_map('intval', array_filter($array, function ($value) {
 $numsToExclude = [];
 
 
-var_dump($array);
+
 
 
 for ($i = 0; $i <= count($array); $i++) {
