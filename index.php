@@ -53,7 +53,17 @@ foreach($array as $key =>  $value){
 //echo $closestNumber, "<br/>";
 
 $squareRootPlusOne = intval(sqrt(max($array)))+1;
-echo $squareRootPlusOne;
+echo $squareRootPlusOne, "<br/>";
+echo "<table border='1' width='700px' height='500px'>";
+for($i=0;$i<$squareRootPlusOne;$i++){
+    echo "<tr>";
+    for($j=0;$j<$squareRootPlusOne;$j++){
+        echo "<td></td>";
+    }
+    echo "</tr>";
+}
+echo "</table>";
+
 ?>
 
 </body>
