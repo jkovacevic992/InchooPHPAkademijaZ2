@@ -50,7 +50,10 @@ foreach($array as $key =>  $value){
 }
 
 
-echo $closestNumber;
+//echo $closestNumber, "<br/>";
+
+$squareRootPlusOne = intval(sqrt(max($array)))+1;
+echo $squareRootPlusOne;
 ?>
 
 </body>
