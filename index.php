@@ -18,14 +18,27 @@
 
 <?php
 
-$numbersArray = $_POST['numbers'];
-$array = array_map('intval', explode(',', $numbersArray));
+$numbers = $_POST['numbers'];
+
+$array = explode(',', $numbers);
+foreach ($array as &$item) {
+    $item = preg_replace('/\D/', '', $item);
+}
+$array = array_map('intval', array_filter($array, function ($value) {
+    return $value !== '';
+}));
 $numsToExclude = [];
-for ($i = 0; $i < count($array); $i++) {
+
+
+var_dump($array);
+
+
+for ($i = 0; $i <= count($array); $i++) {
     if ($array[$i] % 2 !== 0) {
         $numsToExclude[] = $array[$i];
         continue;
     }
+
 
 }
 
@@ -48,9 +61,9 @@ foreach ($array as $key => $value) {
 
 $squareRootPlusOne = intval(sqrt(max($array))) + 1;
 
-echo "Arithmetic mean: ". $arithmeticMean, "<br/>";
-echo "The next even number larger than the arithmetic mean: ". $closestNumber, "<br />";
-echo "Square root +1 of the largest even number: ". $squareRootPlusOne, "<br />";
+echo "Arithmetic mean: " . $arithmeticMean, "<br/>";
+echo "The next even number larger than the arithmetic mean: " . $closestNumber, "<br />";
+echo "Square root +1 of the largest even number: " . $squareRootPlusOne, "<br />";
 
 echo "<table border='1'>";
 $p = 1;
@@ -58,13 +71,13 @@ for ($i = 0; $i < $squareRootPlusOne; $i++) {
     echo "<tr>";
 
     for ($j = 0; $j < $squareRootPlusOne; $j++) {
-        if (in_array($p, $array) && $p===$closestNumber) {
+        if (in_array($p, $array) && $p == $closestNumber) {
 
             echo "<td><b>", $p, "</b></td>";
-        } else if(in_array($p, $array)){
+        } else if (in_array($p, $array)) {
             echo "<td>", $p, "</td>";
 
-        }else{
+        } else {
             echo "<td>", "</td>";
         }
         $p++;
