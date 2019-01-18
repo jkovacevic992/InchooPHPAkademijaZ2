@@ -17,68 +17,57 @@
 </form>
 
 <?php
-//var_dump($_POST);
-//echo "</br>";
+
 $numbersArray = $_POST['numbers'];
 $array = array_map('intval', explode(',', $numbersArray));
 $numsToExclude = [];
-for($i=0;$i<count($array);$i++){
-    if($array[$i]%2!==0){
+for ($i = 0; $i < count($array); $i++) {
+    if ($array[$i] % 2 !== 0) {
         $numsToExclude[] = $array[$i];
         continue;
     }
 
 }
-//var_dump($array);
-//echo "<br/>";
-//var_dump($numsToExclude);
-//echo "<br/>";
-$arithmeticMean = array_sum($array)/count($array);
+
+$arithmeticMean = array_sum($array) / count($array);
 $array = array_values(array_diff($array, $numsToExclude));
 $array = array_unique($array);
 sort($array);
-//echo "Array sum ", array_sum($array), "<br/>";
-//echo "Array count ", count($array), "<br/>";
 
-//echo "Array with unique values";
-//var_dump($array);
 echo "<br/>";
 $closestNumber = null;
 
 
-foreach($array as $key =>  $value){
-    if($value >= $arithmeticMean && $value%2===0){
+foreach ($array as $key => $value) {
+    if ($value >= $arithmeticMean && $value % 2 === 0) {
         $closestNumber = $value;
         break;
     }
 }
 
 
-//echo $closestNumber, "<br/>";
+$squareRootPlusOne = intval(sqrt(max($array))) + 1;
 
-$squareRootPlusOne = intval(sqrt(max($array)))+1;
-//echo $squareRootPlusOne, "<br/>";
-var_dump($array);
-echo "<br/>";
-for($i=0;$i<count($array);$i++) {
-    if ($array[$i] % 2 !== 0) {
-        continue;
-    }
-    echo $array[$i], "<br/>";
-}
+echo "Arithmetic mean: ". $arithmeticMean, "<br/>";
+echo "The next even number larger than the arithmetic mean: ". $closestNumber, "<br />";
+echo "Square root +1 of the largest even number: ". $squareRootPlusOne, "<br />";
 
 echo "<table border='1'>";
 $p = 1;
-for($i=0;$i<$squareRootPlusOne;$i++){
+for ($i = 0; $i < $squareRootPlusOne; $i++) {
     echo "<tr>";
 
-    for($j=0;$j<$squareRootPlusOne;$j++){
-            if(in_array($p,$array)){
-                echo "<td>", $p, "</td>";
-            }else{
-                echo "<td>", "</td>";
-            }
-            $p++;
+    for ($j = 0; $j < $squareRootPlusOne; $j++) {
+        if (in_array($p, $array) && $p===$closestNumber) {
+
+            echo "<td><b>", $p, "</b></td>";
+        } else if(in_array($p, $array)){
+            echo "<td>", $p, "</td>";
+
+        }else{
+            echo "<td>", "</td>";
+        }
+        $p++;
 
 
     }

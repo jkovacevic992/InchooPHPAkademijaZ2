@@ -1,13 +1,13 @@
 table{
 
     table-layout: fixed;
-    width: 600px;
-    height: 600px;
+    width: 800px;
+    height: 800px;
 
 }
 td{
-    font-size: 15px;
-    width: 15px;
-    height: 15px;
+    font-size-adjust: inherit;
+    width: 20px;
+    height: 20px;
 
 }
