@@ -1,0 +1,13 @@
+table{
+
+    table-layout: fixed;
+    width: 600px;
+    height: 600px;
+
+}
+td{
+    font-size: 15px;
+    width: 15px;
+    height: 15px;
+
+}
