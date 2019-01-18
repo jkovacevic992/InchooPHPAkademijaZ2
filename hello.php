@@ -15,5 +15,17 @@
 
 </form>
 
+<?php
+var_dump($_POST);
+echo "</br>";
+$numbersArray = $_POST['numbers'];
+$array = array_map('intval', explode(',', $numbersArray));
+
+for($i=0;$i<count($array);$i++){
+    echo $array[$i], "<br/>";
+}
+var_dump($array);
+?>
+
 </body>
 </html>
