@@ -5,32 +5,39 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+
     <title>Homework 2</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<form action="index.html">
 
-<form method="post">
-    <input type="text" name="numbers"><br/>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Back">
 
 </form>
 
 <?php
 
+
 $numbers = $_POST['numbers'];
 
 $array = explode(',', $numbers);
-foreach ($array as $item) {
-    $item = preg_replace('/\D/', '', $item);
+//foreach ($array as $item) {
+//    $item = preg_replace('/\D/', '', $item);
+//}
+foreach ($array as $value){
+    if(!is_numeric($value) || $value<=0){
+        echo "You can only enter positive numbers (no letters or negative numbers).";
+        exit();
+
+
+
+    }
 }
 $array = array_map('intval', array_filter($array, function ($value) {
     return $value !== '';
 }));
 $numsToExclude = [];
-
-
-
 
 
 for ($i = 0; $i <= count($array); $i++) {
@@ -65,12 +72,13 @@ echo "Arithmetic mean: " . $arithmeticMean, "<br/>";
 echo "The next even number larger than the arithmetic mean: " . $closestNumber, "<br />";
 echo "Square root +1 of the largest even number: " . $squareRootPlusOne, "<br />";
 
-echo "<table border='1'>";
-$p=1;
+echo "<table>";
+$p = 0;
 for ($i = 0; $i < $squareRootPlusOne; $i++) {
     echo "<tr>";
 
     for ($j = 0; $j < $squareRootPlusOne; $j++) {
+        ++$p;
         if (in_array($p, $array) && $p === $closestNumber) {
 
             echo "<td><b>", $p, "</b></td>";
@@ -80,7 +88,6 @@ for ($i = 0; $i < $squareRootPlusOne; $i++) {
         } else {
             echo "<td>", "</td>";
         }
-        $p++;
 
 
     }
@@ -89,6 +96,8 @@ for ($i = 0; $i < $squareRootPlusOne; $i++) {
 echo "</table>";
 
 ?>
+
+
 
 </body>
 </html>

@@ -1,13 +1,9 @@
-table{
-
-    table-layout: fixed;
-    width: 800px;
-    height: 800px;
+table {
+    border: 1px solid;
 
 }
-td{
-    font-size-adjust: inherit;
-    width: 20px;
-    height: 20px;
-
+th, td {
+    border: 1px solid;
+    width: 2em;
+    height: 2em;
 }
