@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Homework 2</title>
 </head>
 <body>
 
@@ -21,7 +21,7 @@
 $numbers = $_POST['numbers'];
 
 $array = explode(',', $numbers);
-foreach ($array as &$item) {
+foreach ($array as $item) {
     $item = preg_replace('/\D/', '', $item);
 }
 $array = array_map('intval', array_filter($array, function ($value) {
@@ -43,8 +43,8 @@ for ($i = 0; $i <= count($array); $i++) {
 }
 
 $arithmeticMean = array_sum($array) / count($array);
-$array = array_values(array_diff($array, $numsToExclude));
-$array = array_unique($array);
+$array = array_unique(array_values(array_diff($array, $numsToExclude)));
+
 sort($array);
 
 echo "<br/>";
@@ -66,12 +66,12 @@ echo "The next even number larger than the arithmetic mean: " . $closestNumber, 
 echo "Square root +1 of the largest even number: " . $squareRootPlusOne, "<br />";
 
 echo "<table border='1'>";
-$p = 1;
+$p=1;
 for ($i = 0; $i < $squareRootPlusOne; $i++) {
     echo "<tr>";
 
     for ($j = 0; $j < $squareRootPlusOne; $j++) {
-        if (in_array($p, $array) && $p == $closestNumber) {
+        if (in_array($p, $array) && $p === $closestNumber) {
 
             echo "<td><b>", $p, "</b></td>";
         } else if (in_array($p, $array)) {
