@@ -40,9 +40,7 @@ $numsToExclude = [];
 for ($i = 0; $i <= count($array); $i++) {
     if ($array[$i] % 2 !== 0) {
         $numsToExclude[] = $array[$i];
-        continue;
-    }
-
+        }
 
 }
 
