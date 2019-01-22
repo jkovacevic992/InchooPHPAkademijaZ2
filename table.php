@@ -56,7 +56,7 @@ $closestNumber = null;
 
 
 foreach ($array as $key => $value) {
-    if ($value >= $arithmeticMean && $value % 2 === 0) {
+    if ($value > $arithmeticMean && $value % 2 === 0) {
         $closestNumber = $value;
         break;
     }
