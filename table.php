@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Homework 2</title>
@@ -31,6 +30,7 @@ foreach ($array as $value) {
 
     }
 }
+$squareRootPlusOne = intval(sqrt(max($array))) + 1;
 $array = array_map('intval', array_filter($array, function ($value) {
     return $value !== '';
 }));
@@ -61,11 +61,11 @@ foreach ($array as $key => $value) {
 }
 
 
-$squareRootPlusOne = intval(sqrt(max($array))) + 1;
+
 
 echo "Arithmetic mean: " . $arithmeticMean, "<br/>";
 echo "The next even number larger than the arithmetic mean: " . $closestNumber, "<br />";
-echo "Square root +1 of the largest even number: " . $squareRootPlusOne, "<br />";
+echo "Square root +1 of the largest number: " . $squareRootPlusOne, "<br />";
 
 echo "<table>";
 $p = 0;
