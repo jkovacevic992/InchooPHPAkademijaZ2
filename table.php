@@ -22,14 +22,11 @@
 $numbers = $_POST['numbers'];
 
 $array = explode(',', $numbers);
-//foreach ($array as $item) {
-//    $item = preg_replace('/\D/', '', $item);
-//}
-foreach ($array as $value){
-    if(!is_numeric($value) || $value<=0){
-        echo "You can only enter positive numbers (no letters or negative numbers).";
-        exit();
 
+foreach ($array as $value) {
+    if (!is_numeric($value) || $value <= 0) {
+        echo "You can only enter positive numbers (no letters or negative numbers) separated by comma.";
+        exit();
 
 
     }
@@ -54,7 +51,7 @@ $array = array_unique(array_values(array_diff($array, $numsToExclude)));
 
 sort($array);
 
-echo "<br/>";
+
 $closestNumber = null;
 
 
@@ -96,7 +93,6 @@ for ($i = 0; $i < $squareRootPlusOne; $i++) {
 echo "</table>";
 
 ?>
-
 
 
 </body>
